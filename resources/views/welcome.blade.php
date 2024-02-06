@@ -127,11 +127,10 @@
 
         <select name="language" id="language">
             <option value="" disabled selected>Choose Language</option>
-            @if (count($languages) > 0)
-                @foreach ($languages as $language)
-                    <option value="{{ $language->code }}">{{ ucfirst( $language->name ) }}</option>
-                @endforeach
-            @endif
+            @forelse($languages as $language)
+                <option value="{{ $language->code }}">{{ ucfirst( $language->name ) }}</option>
+            @empty
+            @endforelse
         </select>
     </nav>
 
